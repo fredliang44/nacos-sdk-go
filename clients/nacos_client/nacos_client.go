@@ -2,12 +2,13 @@ package nacos_client
 
 import (
 	"errors"
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
-	"github.com/nacos-group/nacos-sdk-go/common/http_agent"
-	"github.com/nacos-group/nacos-sdk-go/utils"
 	"log"
 	"os"
 	"strconv"
+
+	"github.com/nacos-group/nacos-sdk-go/common/constant"
+	"github.com/nacos-group/nacos-sdk-go/common/http_agent"
+	"github.com/nacos-group/nacos-sdk-go/utils"
 )
 
 /**
@@ -48,10 +49,8 @@ func (client *NacosClient) SetClientConfig(config constant.ClientConfig) (err er
 	if config.CacheDir == "" {
 		config.CacheDir = utils.GetCurrentPath() + string(os.PathSeparator) + "cache"
 	}
-	if config.LogDir == "" {
-		config.LogDir = utils.GetCurrentPath() + string(os.PathSeparator) + "log"
-	}
-	log.Printf("[INFO] logDir:<%s>   cacheDir:<%s>", config.LogDir, config.CacheDir)
+
+	log.Printf("[INFO] cacheDir:<%s>", config.LogDir, config.CacheDir)
 	client.clientConfig = config
 	client.clientConfigValid = true
 
