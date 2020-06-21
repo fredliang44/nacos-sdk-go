@@ -1,19 +1,19 @@
 package naming_client
 
 import (
-	"github.com/nacos-group/nacos-sdk-go/clients/cache"
-	"github.com/nacos-group/nacos-sdk-go/clients/nacos_client"
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
-	"github.com/nacos-group/nacos-sdk-go/common/logger"
-	"github.com/nacos-group/nacos-sdk-go/model"
-	"github.com/nacos-group/nacos-sdk-go/utils"
-	"github.com/nacos-group/nacos-sdk-go/vo"
-	"github.com/pkg/errors"
 	"math"
 	"math/rand"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/nacos-group/nacos-sdk-go/clients/cache"
+	"github.com/nacos-group/nacos-sdk-go/clients/nacos_client"
+	"github.com/nacos-group/nacos-sdk-go/common/constant"
+	"github.com/nacos-group/nacos-sdk-go/model"
+	"github.com/nacos-group/nacos-sdk-go/utils"
+	"github.com/nacos-group/nacos-sdk-go/vo"
+	"github.com/pkg/errors"
 )
 
 type NamingClient struct {
@@ -40,7 +40,6 @@ func NewNamingClient(nc nacos_client.INacosClient) (NamingClient, error) {
 	if err != nil {
 		return naming, err
 	}
-	err = logger.InitLog(clientConfig.LogDir)
 	if err != nil {
 		return naming, err
 	}

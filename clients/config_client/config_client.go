@@ -2,23 +2,24 @@ package config_client
 
 import (
 	"errors"
+
 	"github.com/nacos-group/nacos-sdk-go/clients/cache"
 	"github.com/nacos-group/nacos-sdk-go/clients/nacos_client"
 	"github.com/nacos-group/nacos-sdk-go/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/common/http_agent"
-	"github.com/nacos-group/nacos-sdk-go/common/logger"
 	"github.com/nacos-group/nacos-sdk-go/common/nacos_error"
 	"github.com/nacos-group/nacos-sdk-go/common/util"
 	"github.com/nacos-group/nacos-sdk-go/model"
 	"github.com/nacos-group/nacos-sdk-go/utils"
 	"github.com/nacos-group/nacos-sdk-go/vo"
 
-	"github.com/aliyun/alibaba-cloud-sdk-go/services/kms"
 	"log"
 	"os"
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/aliyun/alibaba-cloud-sdk-go/services/kms"
 )
 
 type ConfigClient struct {
@@ -45,7 +46,7 @@ func NewConfigClient(nc nacos_client.INacosClient) (ConfigClient, error) {
 	if err != nil {
 		return config, err
 	}
-	err = logger.InitLog(clientConfig.LogDir)
+
 	if err != nil {
 		return config, err
 	}
